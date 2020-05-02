@@ -1,0 +1,36 @@
+body{
+  text-align: center;
+  background-color: #ea5455;
+}
+
+h1{
+  font-size: 5rem;
+  color: #2d4059;
+  text-shadow: 1px 0 #DA0463;
+  font-family: 'New Rocker', cursive;
+}
+
+footer {
+  color: #DBEDF3;
+  font-family: 'New Rocker', cursive;
+}
+
+.set{
+  margin:10% auto;
+}
+.drum {
+  border: 10px dashed #404B69;
+  font-size: 5rem;
+  font-family: 'New Rocker', cursive;
+  line-height: 2;
+  font-weight: 900;
+  color: #f07b3f;
+  text-shadow: 3px 0 #DBEDF3;
+  border-radius: 15px;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  margin: 10px;
+  background-color: #ffd460;
+}
