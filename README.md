@@ -1,7 +1,7 @@
 # Play-Drum-Kit
 Play drum kit with mouse click and keyboard
 
-![](images/diceGame_img.png)
+![](images/DrumKit_ss.png)
 
 
 Requirements:
