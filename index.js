@@ -1,112 +1,87 @@
-//adding event listener  on click
+var numberOfDrumButtons = document.querySelectorAll(".drum").length;
 
+for (var i = 0; i < numberOfDrumButtons; i++) {
 
-// -----------------adding CLICK event listener all the drum on screen START -----------------
-var numberOfDrum = document.querySelectorAll(".drum").length
+  // -----------------adding CLICK event listener all the drum on screen START -----------------
+  document.querySelectorAll(".drum")[i].addEventListener("click", function() {
 
-for (var i = 0; i < numberOfDrum; i++) {
-  document.querySelectorAll(".drum")[i].addEventListener("click", handleOnClick)
+    var buttonInnerHTML = this.innerHTML;
 
-}
+    makeSound(buttonInnerHTML);
 
-function handleOnClick() {
-  // to detect the identity of the pressed button so we can swith the senario(sound in our case)based on that
-  var pressedButtonInnerHTML = this.innerHTML;
+    buttonAnimation(buttonInnerHTML);
 
-  // Switch Statements
-  switch (pressedButtonInnerHTML) {
-    case "w":
-      var sound = new Audio("sounds/tom-1.mp3")
-      sound.play();
-      break;
-    case "a":
-      var sound = new Audio("sounds/tom-2.mp3")
-      sound.play();
-      break;
-    case "s":
-      var sound = new Audio("sounds/tom-3.mp3")
-      sound.play();
-      break;
-    case "d":
-      var sound = new Audio("sounds/tom-4.mp3")
-      sound.play();
-      break;
-    case "j":
-      var sound = new Audio("sounds/snare.mp3")
-      sound.play();
-      break;
-    case "k":
-      var sound = new Audio("sounds/crash.mp3")
-      sound.play();
-      break;
-    case "l":
-      var sound = new Audio("sounds/kick-bass.mp3")
-      sound.play();
-      break;
-
-    default:
-      console.log(this.innerHTML);
-
-  }
+  });
 }
 // -----------------adding CLICK event listener all the drum on screen END -----------------
 
-
 // -----------------adding KEYPRESS event listener all the drum on screen START -----------------
 
-document.addEventListener("keypress", handleKeypress)
+document.addEventListener("keypress", function(event) {
+
+  makeSound(event.key);
+
+  buttonAnimation(event.key);
+
+});
+// -----------------adding KEYPRESS event listener all the drum on screen END -----------------
 
 
-function handleKeypress(event){
-  // detecting the key pressed on the keyboard
-  var pressedElementKeyboard = event.key;
+// Switch Statements
+function makeSound(key) {
 
-  // after detecting the key use the switch statement to make corresonded sound with the key pressed
-  switch (pressedElementKeyboard) {
+  switch (key) {
     case "w":
-      var sound = new Audio("sounds/tom-1.mp3")
-      sound.play();
-      break;
-    case "a":
-      var sound = new Audio("sounds/tom-2.mp3")
-      sound.play();
-      break;
-    case "s":
-      var sound = new Audio("sounds/tom-3.mp3")
-      sound.play();
-      break;
-    case "d":
-      var sound = new Audio("sounds/tom-4.mp3")
-      sound.play();
-      break;
-    case "j":
-      var sound = new Audio("sounds/snare.mp3")
-      sound.play();
-      break;
-    case "k":
-      var sound = new Audio("sounds/crash.mp3")
-      sound.play();
-      break;
-    case "l":
-      var sound = new Audio("sounds/kick-bass.mp3")
-      sound.play();
+      var tom1 = new Audio("sounds/tom-1.mp3");
+      tom1.play();
       break;
 
-    default:
-      // if a key that is not in the switck pressed console the pressed key
-      console.log(event.key);
+    case "a":
+      var tom2 = new Audio("sounds/tom-2.mp3");
+      tom2.play();
+      break;
+
+    case "s":
+      var tom3 = new Audio('sounds/tom-3.mp3');
+      tom3.play();
+      break;
+
+    case "d":
+      var tom4 = new Audio('sounds/tom-4.mp3');
+      tom4.play();
+      break;
+
+    case "j":
+      var snare = new Audio('sounds/snare.mp3');
+      snare.play();
+      break;
+
+    case "k":
+      var crash = new Audio('sounds/crash.mp3');
+      crash.play();
+      break;
+
+    case "l":
+      var kick = new Audio('sounds/kick-bass.mp3');
+      kick.play();
+      break;
+
+
+    default: console.log(key);
 
   }
+}
+// switch statements end
+
+  // adding animation to the pressed buttons
+function buttonAnimation(currentKey) {
+
+  var activeButton = document.querySelector("." + currentKey);
+
+  activeButton.classList.add("pressed");
+
+  setTimeout(function() {
+    activeButton.classList.remove("pressed");
+  }, 100);
 
 }
-
-
-
-
-
-
-
-
-
-
-// -----------------adding KEYPRESS event listener all the drum on screen END -----------------
